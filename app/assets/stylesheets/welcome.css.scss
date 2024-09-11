@@ -1,3 +1,16 @@
-// Place all the styles related to the welcome controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+html, body {
+  scroll-behavior: smooth;
+  background-color: grey;
+  text-align: center;
+}
+
+.page {
+  background-color: white;
+  margin-top: 80vh;
+  margin-left: 5%;
+  margin-right: 5%;
+}
+
+.big-arrow {
+  font-size: 64px;
+}
