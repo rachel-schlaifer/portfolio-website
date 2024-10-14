@@ -1,0 +1,56 @@
+html, body {
+  scroll-behavior: smooth;
+  background-color: #C1B297;
+  text-align: center;
+}
+
+.page {
+  background-color: #FCF6E3;
+  margin-top: 60vh;
+  margin-left: 5%;
+  margin-right: 5%;
+  clip-path: inset(0 round 10px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  color: #7C5E4E;
+  h1, h2, h3 {text-shadow:
+  -0.5px -0.5px 0 #000,
+  0.5px -0.5px 0 #000,
+  -0.5px 0.5px 0 #000,
+  0.5px 0.5px 0 #000;
+  }
+  .header {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: center;
+  }
+  .profile-photo {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center;
+    position: relative;
+    float: left;
+    margin-top: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-bottom: 12px;
+    align-self: flex-start;
+  }
+}
+
+.big-arrow {
+  font-size: 64px;
+}
+
+.freshtracker-logo {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 390.625px;
+  height: 130.1875px;
+}
