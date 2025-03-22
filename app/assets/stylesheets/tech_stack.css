@@ -1,0 +1,43 @@
+.tech-stack {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2rem;
+  margin: 2rem 0;
+}
+
+.tech-category {
+  background: rgba(193, 178, 151, 0.1);
+  padding: 1.5rem;
+  border-radius: 8px;
+  transition: transform 0.2s ease;
+}
+
+.tech-category:hover {
+  transform: translateY(-5px);
+}
+
+.tech-category h3 {
+  margin-bottom: 1rem;
+  color: #7C5E4E;
+  font-size: 1.2rem;
+}
+
+.tech-category ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.tech-category li {
+  padding: 0.5rem 0;
+  position: relative;
+  padding-left: 1.2rem;
+  color: #7C5E4E;
+}
+
+.tech-category li:before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: #7C5E4E;
+}

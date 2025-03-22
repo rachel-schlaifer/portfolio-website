@@ -2,6 +2,10 @@ html, body {
   scroll-behavior: smooth;
   background-color: #C1B297;
   text-align: center;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
 }
 
 .page {
@@ -15,18 +19,24 @@ html, body {
   align-items: center;
   text-align: center;
   color: #7C5E4E;
-  h1, h2, h3 {text-shadow:
-  -0.5px -0.5px 0 #000,
-  0.5px -0.5px 0 #000,
-  -0.5px 0.5px 0 #000,
-  0.5px 0.5px 0 #000;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  
+  h1, h2, h3 {
+    text-shadow:
+      -0.5px -0.5px 0 #000,
+      0.5px -0.5px 0 #000,
+      -0.5px 0.5px 0 #000,
+      0.5px 0.5px 0 #000;
   }
+  
   .header {
     display: flex;
     align-items: center;
     width: 100%;
     justify-content: center;
   }
+  
   .profile-photo {
     width: 150px;
     height: 150px;
@@ -35,22 +45,72 @@ html, body {
     object-position: center;
     position: relative;
     float: left;
-    margin-top: 20px;
-    margin-left: 20px;
-    margin-right: 20px;
-    margin-bottom: 12px;
+    margin: 20px;
     align-self: flex-start;
+  }
+}
+
+.landing-section {
+  min-height: 40vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 2rem;
+  
+  .header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+  }
+  
+  .profile-photo {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center;
+    margin: 20px;
+  }
+  
+  p {
+    margin-bottom: 2rem;
+  }
+}
+
+.content-section {
+  width: 100%;
+  padding: 2rem;
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  
+  &.hidden {
+    opacity: 0;
+    transform: translateY(20px);
+    height: 0;
+    overflow: hidden;
+    padding: 0;
+    margin: 0;
   }
 }
 
 .big-arrow {
   font-size: 64px;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  
+  &:hover {
+    transform: translateY(10px);
+  }
 }
 
 .freshtracker-logo {
   display: block;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 0 auto;
   width: 390.625px;
   height: 130.1875px;
 }
