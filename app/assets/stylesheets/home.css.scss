@@ -1,6 +1,10 @@
 html, body {
   scroll-behavior: smooth;
   background-color: #C1B297;
+  background-image: url(asset-path('ruby_coffee2.jpg'));
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   text-align: center;
   height: 100vh;
   margin: 0;
