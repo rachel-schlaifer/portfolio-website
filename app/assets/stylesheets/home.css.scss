@@ -1,9 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&display=swap');
+
 html, body {
+  font-family: 'IBM Plex Sans', sans-serif;
   scroll-behavior: smooth;
-  background-color: #C1B297;
-  background-image: url(asset-path('ruby_coffee2.jpg'));
-  background-size: cover;
-  background-position: center;
+  background-color: #D5AE90;
+  background-image: url(asset-path('ruby_coffee.jpg'));
+  background-size: 55% auto;
+  background-position: center top;
   background-repeat: no-repeat;
   text-align: center;
   height: 100vh;
