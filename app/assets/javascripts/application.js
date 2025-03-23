@@ -28,3 +28,17 @@ $(document).ready(function() {
     });
   }
 });
+
+// Ensure CSRF token is properly refreshed with Turbolinks
+document.addEventListener('turbolinks:load', function() {
+  // For Rails CSRF protection with Turbolinks
+  var token = document.querySelector('meta[name="csrf-token"]');
+  if (token) {
+    // Update all forms with the current CSRF token
+    var forms = document.querySelectorAll('form');
+    forms.forEach(function(form) {
+      var input = form.querySelector('input[name="authenticity_token"]');
+      if (input) input.value = token.content;
+    });
+  }
+});

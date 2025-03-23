@@ -1,6 +1,5 @@
 class HomeController < ApplicationController
-  # Skip CSRF check for send_message action while troubleshooting
-  skip_before_action :verify_authenticity_token, only: [:send_message]
+  # CSRF protection is re-enabled
   
   def index
 
