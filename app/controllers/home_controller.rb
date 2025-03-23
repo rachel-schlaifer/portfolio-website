@@ -1,5 +1,7 @@
 class HomeController < ApplicationController
-  # CSRF protection is re-enabled
+  # CSRF protection is still enabled for most actions
+  # But we'll skip it just for the contact form to ensure it works in production
+  skip_before_action :verify_authenticity_token, only: [:send_message]
   
   def index
 
