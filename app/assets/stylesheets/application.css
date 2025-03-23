@@ -13,3 +13,38 @@
  *= require_tree .
  *= require_self
  */
+
+/* Language selector styling */
+.language-selector {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1000;
+  background-color: rgba(252, 246, 227, 0.8);
+  padding: 8px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.language-btn {
+  background-color: #FCF6E3;
+  color: #7C5E4E;
+  border: 1px solid #7C5E4E;
+  border-radius: 4px;
+  padding: 5px 10px;
+  margin: 0 2px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 14px;
+}
+
+.language-btn:hover {
+  background-color: #7C5E4E;
+  color: #FCF6E3;
+}
+
+.language-btn.active {
+  background-color: #7C5E4E;
+  color: #FCF6E3;
+  font-weight: bold;
+}

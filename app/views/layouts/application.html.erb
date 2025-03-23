@@ -12,7 +12,24 @@
 </head>
 <body>
 
+<div class="language-selector">
+  <button class="language-btn active" data-lang="en">EN</button>
+  <button class="language-btn" data-lang="jp">日本語</button>
+  <button class="language-btn" data-lang="es">ES</button>
+</div>
+
 <%= yield %>
+
+<%= javascript_include_tag "translations" %>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll('.language-btn').forEach(btn => {
+      btn.addEventListener('click', function() {
+        changeLanguage(this.getAttribute('data-lang'));
+      });
+    });
+  });
+</script>
 
 </body>
 </html>
