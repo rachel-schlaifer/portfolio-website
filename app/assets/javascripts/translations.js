@@ -13,7 +13,20 @@ const translations = {
     languagesHeading: "Languages",
     datastoreHeading: "Datastore",
     toolsHeading: "Tools",
-    cloudHeading: "Cloud"
+    cloudHeading: "Cloud",
+    // Navigation
+    homeLink: "Home",
+    contactLink: "Contact",
+    // Contact page
+    contactHeading: "Contact Me",
+    nameLabel: "Your name",
+    emailLabel: "Your email address",
+    subjectLabel: "Subject",
+    messageLabel: "Message",
+    sendButton: "Send Message",
+    backLink: "Back to Home",
+    successMessage: "Thank you for your message! I'll get back to you soon.",
+    errorMessage: "Sorry, there was an error sending your message. Please try again."
   },
   jp: {
     welcomeHeading: "ポートフォリオへようこそ",
@@ -27,7 +40,20 @@ const translations = {
     languagesHeading: "言語",
     datastoreHeading: "データストア",
     toolsHeading: "ツール",
-    cloudHeading: "クラウド"
+    cloudHeading: "クラウド",
+    // Navigation
+    homeLink: "ホーム",
+    contactLink: "お問い合わせ",
+    // Contact page
+    contactHeading: "お問い合わせ",
+    nameLabel: "お名前",
+    emailLabel: "メールアドレス",
+    subjectLabel: "件名",
+    messageLabel: "メッセージ",
+    sendButton: "送信する",
+    backLink: "ホームに戻る",
+    successMessage: "メッセージをいただきありがとうございます！近日中にご連絡いたします。",
+    errorMessage: "申し訳ありませんが、メッセージの送信中にエラーが発生しました。もう一度お試しください。"
   },
   es: {
     welcomeHeading: "Bienvenido a Mi Portafolio",
@@ -41,35 +67,26 @@ const translations = {
     languagesHeading: "Lenguajes",
     datastoreHeading: "Almacenamiento de Datos",
     toolsHeading: "Herramientas",
-    cloudHeading: "Nube"
+    cloudHeading: "Nube",
+    // Navigation
+    homeLink: "Inicio",
+    contactLink: "Contacto",
+    // Contact page
+    contactHeading: "Contáctame",
+    nameLabel: "Nombre",
+    emailLabel: "Correo electrónico",
+    subjectLabel: "Asunto",
+    messageLabel: "Mensaje",
+    sendButton: "Enviar mensaje",
+    backLink: "Volver al inicio",
+    successMessage: "¡Gracias por tu mensaje! Te responderé pronto.",
+    errorMessage: "Lo siento, hubo un error al enviar tu mensaje. Por favor, inténtalo de nuevo."
   }
 };
 
 // Function to change the language
 function changeLanguage(lang) {
   if (!translations[lang]) return;
-  
-  const elements = {
-    welcomeHeading: document.querySelector('.header h1'),
-    exploreText: document.querySelector('.landing-section > p'),
-    aboutMeHeading: document.querySelector('.content-section h2:nth-of-type(1)'),
-    aboutMeText: document.querySelector('.content-section p:nth-of-type(1)'),
-    projectsHeading: document.querySelector('.content-section h2:nth-of-type(2)'),
-    projectDescription: document.querySelector('.content-section p:nth-of-type(2)'),
-    projectLink: document.querySelector('.content-section a'),
-    techStackHeading: document.querySelector('.content-section h2:nth-of-type(3)'),
-    languagesHeading: document.querySelector('.tech-category:nth-of-type(1) h3'),
-    datastoreHeading: document.querySelector('.tech-category:nth-of-type(2) h3'),
-    toolsHeading: document.querySelector('.tech-category:nth-of-type(3) h3'),
-    cloudHeading: document.querySelector('.tech-category:nth-of-type(4) h3')
-  };
-  
-  // Update text content for each element
-  for (const [key, element] of Object.entries(elements)) {
-    if (element && translations[lang][key]) {
-      element.textContent = translations[lang][key];
-    }
-  }
   
   // Save language preference to localStorage
   localStorage.setItem('preferredLanguage', lang);
@@ -81,13 +98,77 @@ function changeLanguage(lang) {
       btn.classList.add('active');
     }
   });
+  
+  // Detect the current page and apply translations accordingly
+  applyTranslations(lang);
 }
 
-// Initialize translation system
-document.addEventListener('DOMContentLoaded', function() {
+// Apply translations based on the current page
+function applyTranslations(lang) {
+  // Elements that exist on all pages
+  updateElement('.nav-links a:nth-of-type(1)', 'homeLink', lang);
+  updateElement('.nav-links a:nth-of-type(2)', 'contactLink', lang);
+  
+  // Homepage elements
+  if (document.querySelector('.landing-section')) {
+    updateElement('.header h1', 'welcomeHeading', lang);
+    updateElement('.landing-section > p', 'exploreText', lang);
+    updateElement('.content-section h2:nth-of-type(1)', 'aboutMeHeading', lang);
+    updateElement('.content-section p:nth-of-type(1)', 'aboutMeText', lang);
+    updateElement('.content-section h2:nth-of-type(2)', 'projectsHeading', lang);
+    updateElement('.content-section p:nth-of-type(2)', 'projectDescription', lang);
+    updateElement('.content-section a', 'projectLink', lang);
+    updateElement('.content-section h2:nth-of-type(3)', 'techStackHeading', lang);
+    updateElement('.tech-category:nth-of-type(1) h3', 'languagesHeading', lang);
+    updateElement('.tech-category:nth-of-type(2) h3', 'datastoreHeading', lang);
+    updateElement('.tech-category:nth-of-type(3) h3', 'toolsHeading', lang);
+    updateElement('.tech-category:nth-of-type(4) h3', 'cloudHeading', lang);
+  }
+  
+  // Contact page elements
+  if (document.querySelector('.contact-section')) {
+    updateElement('.contact-section h1', 'contactHeading', lang);
+    updateElement('label[for="name"]', 'nameLabel', lang);
+    updateElement('label[for="email"]', 'emailLabel', lang);
+    updateElement('label[for="subject"]', 'subjectLabel', lang);
+    updateElement('label[for="message"]', 'messageLabel', lang);
+    updateElement('#submit-btn', 'sendButton', lang);
+    updateElement('.back-link a', 'backLink', lang);
+    
+    // Flash messages if present
+    updateElement('.alert-success', 'successMessage', lang);
+    updateElement('.alert-danger', 'errorMessage', lang);
+  }
+}
+
+// Helper function to update an element if it exists
+function updateElement(selector, translationKey, lang) {
+  const element = document.querySelector(selector);
+  if (element && translations[lang][translationKey]) {
+    element.textContent = translations[lang][translationKey];
+  }
+}
+
+// Initialize translation system - with both Turbolinks and standard events
+function initTranslations() {
+  // Set up language switcher buttons
+  document.querySelectorAll('.language-btn').forEach(btn => {
+    btn.addEventListener('click', function() {
+      changeLanguage(this.getAttribute('data-lang'));
+    });
+  });
+  
   // Check if there's a saved language preference
   const savedLanguage = localStorage.getItem('preferredLanguage');
   if (savedLanguage && translations[savedLanguage]) {
     changeLanguage(savedLanguage);
   }
-});
+}
+
+// Handle both initial page load and Turbolinks navigation
+document.addEventListener('DOMContentLoaded', initTranslations);
+document.addEventListener('turbolinks:load', initTranslations);
+
+// Also support jQuery ready for backward compatibility
+$(document).ready(initTranslations);
+$(document).on('turbolinks:load', initTranslations);

@@ -14,3 +14,17 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+// Loading animation for contact form
+$(document).ready(function() {
+  var contactForm = $('#contact-form');
+  var submitBtn = $('#submit-btn');
+  var loadingAnimation = $('#loading-animation');
+  
+  if (contactForm.length) {
+    contactForm.on('submit', function() {
+      submitBtn.hide();
+      loadingAnimation.css('display', 'flex');
+    });
+  }
+});

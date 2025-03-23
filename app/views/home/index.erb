@@ -63,14 +63,30 @@
   </div>
 
   <script>
-    document.addEventListener('DOMContentLoaded', function() {
+    // This event listener works with both initial page load and Turbolinks navigation
+    $(document).on('turbolinks:load', function() {
       var arrow = document.getElementById('reveal-arrow');
       var content = document.getElementById('content-section');
       
-      arrow.addEventListener('click', function() {
-        content.classList.remove('hidden');
-        content.scrollIntoView({ behavior: 'smooth' });
-      });
+      if (arrow && content) {
+        arrow.addEventListener('click', function() {
+          content.classList.remove('hidden');
+          content.scrollIntoView({ behavior: 'smooth' });
+        });
+      }
+    });
+    
+    // Also handle the initial page load if turbolinks is disabled
+    $(document).ready(function() {
+      var arrow = document.getElementById('reveal-arrow');
+      var content = document.getElementById('content-section');
+      
+      if (arrow && content) {
+        arrow.addEventListener('click', function() {
+          content.classList.remove('hidden');
+          content.scrollIntoView({ behavior: 'smooth' });
+        });
+      }
     });
   </script>
 </div>

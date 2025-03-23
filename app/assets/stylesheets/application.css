@@ -48,3 +48,28 @@
   color: #FCF6E3;
   font-weight: bold;
 }
+
+/* Navigation links styling */
+.nav-links {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  z-index: 1000;
+  background-color: rgba(252, 246, 227, 0.8);
+  padding: 8px 12px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.nav-links a {
+  color: #7C5E4E;
+  text-decoration: none;
+  margin: 0 8px;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: #654c40;
+  text-decoration: underline;
+}
