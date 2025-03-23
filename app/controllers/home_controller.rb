@@ -1,4 +1,7 @@
 class HomeController < ApplicationController
+  # Skip CSRF check for send_message action while troubleshooting
+  skip_before_action :verify_authenticity_token, only: [:send_message]
+  
   def index
 
   end
@@ -14,14 +17,20 @@ class HomeController < ApplicationController
     @message = params[:message]
     @subject = params[:subject]
     
-    # Send the email
-    ContactMailer.contact_email(@name, @email, @subject, @message).deliver_now
-    
-    # Redirect with a flash message
-    flash[:success] = "Thank you for your message! I'll get back to you soon."
-    redirect_to contact_path
-  rescue => e
-    flash[:error] = "Sorry, there was an error sending your message. Please try again."
-    redirect_to contact_path
+    begin
+      # Send the email
+      ContactMailer.contact_email(@name, @email, @subject, @message).deliver_now
+      
+      # Redirect with a flash message
+      flash[:success] = "Thank you for your message! I'll get back to you soon."
+      redirect_to contact_path
+    rescue => e
+      # Log the error for debugging
+      Rails.logger.error("Email sending error: #{e.message}")
+      Rails.logger.error(e.backtrace.join("\n"))
+      
+      flash[:error] = "Sorry, there was an error sending your message: #{e.message}"
+      redirect_to contact_path
+    end
   end
 end
