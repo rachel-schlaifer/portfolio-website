@@ -101,21 +101,23 @@ textarea.form-control {
 }
 
 .back-link {
-  text-align: center;
-  margin-top: auto;
-  padding-top: 20px;
+  margin-top: 20px;
+  margin-bottom: 30px;
 }
 
 .back-link a {
   color: #7C5E4E;
   text-decoration: none;
   font-weight: bold;
+  padding: 8px 15px;
+  border: 2px solid #7C5E4E;
+  border-radius: 4px;
   transition: all 0.3s ease;
 }
 
 .back-link a:hover {
-  color: #654c40;
-  text-decoration: underline;
+  background-color: #7C5E4E;
+  color: #FCF6E3;
 }
 
 /* Loading Animation Styles */
@@ -173,6 +175,8 @@ textarea.form-control {
   .contact-section {
     padding: 20px 10px;
     width: 100%;
+    min-height: auto; /* Remove full height requirement */
+    display: block; /* Change from flex to block */
   }
   
   .contact-form-container {
@@ -200,12 +204,19 @@ textarea.form-control {
   .form-group {
     margin-bottom: 15px;
   }
+  
+  .back-link {
+    margin-top: 20px;
+    margin-bottom: 40px;
+    text-align: center;
+  }
 }
 
 /* Small Mobile Screens */
 @media (max-width: 480px) {
   .contact-section {
     padding: 15px 5px;
+    margin-bottom: 40px; /* Larger bottom margin on small screens */
   }
   
   .contact-form-container {
@@ -238,6 +249,16 @@ textarea.form-control {
   }
   
   .loading-animation {
+    font-size: 14px;
+  }
+  
+  .back-link {
+    margin-top: 15px;
+    margin-bottom: 30px;
+  }
+  
+  .back-link a {
+    padding: 6px 12px;
     font-size: 14px;
   }
 }

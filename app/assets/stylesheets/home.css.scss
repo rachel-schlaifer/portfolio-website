@@ -121,3 +121,39 @@ html, body {
   width: 390.625px;
   height: 130.1875px;
 }
+
+/* Mobile Specific Styles */
+@media (max-width: 768px) {
+  html, body {
+    background-size: 85% auto;
+    background-position: center 5%;
+  }
+  
+  .page {
+    margin-top: 50vh;
+  }
+}
+
+@media (max-width: 480px) {
+  html, body {
+    background-size: 100% auto;
+    background-position: center 2%;
+    min-height: 100%;
+  }
+  
+  .page {
+    margin-top: 45vh;
+    margin-left: 0;
+    margin-right: 0;
+    width: 100%;
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: 0;
+    min-height: 55vh;
+  }
+  
+  body {
+    overflow-y: auto;
+    position: relative;
+  }
+}
