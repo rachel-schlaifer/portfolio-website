@@ -122,6 +122,14 @@ html, body {
   height: 130.1875px;
 }
 
+.stret-photo {
+  display: block;
+  margin: 0 auto;
+  margin-bottom: 16px;
+  width: 150px;
+  height: auto;
+}
+
 /* Mobile Specific Styles */
 @media (max-width: 768px) {
   html, body {
