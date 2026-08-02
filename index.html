@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&family=Spline+Sans+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  *{box-sizing:border-box}
+  html{-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;scroll-behavior:smooth}
+  body{margin:0}
+  a{color:inherit;text-decoration:none}
+  ::selection{background:var(--accent,#C0552B);color:#fff}
+  @keyframes rs-drawloop{0%{stroke-dashoffset:220}52%{stroke-dashoffset:0}84%{stroke-dashoffset:0}100%{stroke-dashoffset:220}}
+  @keyframes rs-drift{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
+  @keyframes rs-blink{0%,100%{opacity:1}50%{opacity:.3}}
+  [data-motion="off"] *{animation:none !important;transition:none !important}
+</style>
+</helmet>
+<div ref="{{ rootRef }}" style="min-height:100vh;background:var(--paper,#FCFCFB);color:var(--ink,#141210);font-family:'Figtree',system-ui,sans-serif;padding-left:72px;position:relative;overflow-x:hidden;">
+
+  <div aria-hidden="true" style="position:fixed;left:0;top:0;bottom:0;width:72px;display:flex;flex-direction:column;align-items:center;padding:26px 0;z-index:30;pointer-events:none;font-family:'Spline Sans Mono',monospace;">
+    <div style="font-size:9px;letter-spacing:.24em;color:var(--muted,#6B655E);text-transform:uppercase;writing-mode:vertical-rl;">Trailhead</div>
+    <div data-rail-box style="position:relative;flex:1;width:44px;margin:14px 0;">
+      <svg width="44" height="100%" viewBox="0 0 44 1000" preserveAspectRatio="none" fill="none" style="position:absolute;inset:0;overflow:visible;">
+        <path d="M22,0 L34,110 L10,220 L34,330 L10,440 L34,550 L10,660 L34,770 L10,880 L22,1000" stroke="var(--line,rgba(20,18,16,.18))" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"></path>
+        <path data-blaze d="M22,0 L34,110 L10,220 L34,330 L10,440 L34,550 L10,660 L34,770 L10,880 L22,1000" stroke="var(--ink,#141210)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path>
+      </svg>
+      <div ref="{{ dotRef }}" style="position:absolute;left:0;top:0;transform:translate(-50%,-50%);width:9px;height:9px;border-radius:50%;background:var(--accent,#C0552B);box-shadow:0 0 0 4px var(--paper,#FCFCFB);">
+        <span ref="{{ elevRef }}" style="position:absolute;left:15px;top:50%;transform:translateY(-50%);font-size:10px;letter-spacing:.04em;color:var(--ink,#141210);white-space:nowrap;">0m</span>
+      </div>
+    </div>
+    <div style="font-size:9px;letter-spacing:.24em;color:var(--muted,#6B655E);text-transform:uppercase;writing-mode:vertical-rl;">Summit</div>
+  </div>
+
+  <main style="max-width:840px;margin:0 auto;padding:0 40px 140px;">
+
+    <header style="min-height:88vh;display:flex;flex-direction:column;justify-content:center;gap:56px;padding:40px 0 44px;">
+      <div style="display:flex;align-items:center;gap:36px;flex-wrap:wrap;">
+        <div style="flex:1;min-width:280px;">
+          <div style="display:flex;align-items:center;gap:10px;font-family:'Spline Sans Mono',monospace;font-size:11px;letter-spacing:.16em;color:var(--muted,#6B655E);text-transform:uppercase;margin-bottom:22px;">
+            <span style="width:8px;height:8px;border-radius:50%;background:var(--accent,#C0552B);"></span>Trailhead · 0m
+          </div>
+          <h1 style="font-size:clamp(56px,10vw,120px);line-height:.92;font-weight:600;letter-spacing:-.04em;margin:0;">Hi, I'm<br>Rachel</h1>
+          <p style="font-size:20px;line-height:1.5;color:var(--muted,#6B655E);max-width:440px;margin:26px 0 32px;text-wrap:pretty;">Software engineer in Tokyo.</p>
+          <div style="display:flex;flex-wrap:wrap;gap:14px;align-items:center;">
+            <a href="#work" style="font-family:inherit;font-size:14px;font-weight:500;background:var(--ink,#141210);color:var(--paper,#FCFCFB);border:none;padding:13px 24px;cursor:pointer;transition:transform .3s cubic-bezier(.2,.7,.2,1),box-shadow .3s;" style-hover="transform:translateY(-2px);box-shadow:0 8px 22px rgba(20,18,16,.16);">View work</a>
+            <a href="#contact" style="font-family:inherit;font-size:14px;font-weight:500;background:transparent;color:var(--ink,#141210);border:1px solid var(--ink,#141210);padding:12px 23px;cursor:pointer;transition:background .3s,color .3s;" style-hover="background:var(--ink,#141210);color:var(--paper,#FCFCFB);">Get in touch</a>
+          </div>
+        </div>
+        <img src="uploads/80E3BD62-06B9-4FCF-88C7-7C814DE200F2.PNG.png" alt="Rachel at the summit marker of Mt. Ōyama" style="width:clamp(200px,30vw,320px);height:auto;max-height:64vh;object-fit:contain;flex:none;mix-blend-mode:multiply;-webkit-mask-image:linear-gradient(to right,transparent 0%,#000 14%,#000 86%,transparent 100%);mask-image:linear-gradient(to right,transparent 0%,#000 14%,#000 86%,transparent 100%);" />
+      </div>
+      <div style="display:flex;align-items:center;gap:8px;font-family:'Spline Sans Mono',monospace;font-size:11px;letter-spacing:.16em;color:var(--muted,#6B655E);text-transform:uppercase;">Scroll to ascend<span style="animation:rs-drift 2.4s ease-in-out infinite;">↓</span></div>
+    </header>
+
+    <section data-reveal style="padding:60px 0;">
+      <div style="display:flex;align-items:baseline;gap:16px;border-top:1px solid var(--line,rgba(20,18,16,.14));padding-top:18px;margin-bottom:38px;font-family:'Spline Sans Mono',monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;">
+        <span style="color:var(--ink,#141210);">01</span><span style="color:var(--muted,#6B655E);">About · the climber</span>
+      </div>
+      <h2 style="font-size:34px;font-weight:600;letter-spacing:-.02em;margin:0 0 32px;">About</h2>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1px;background:var(--line,rgba(20,18,16,.14));border:1px solid var(--line,rgba(20,18,16,.14));margin-bottom:36px;">
+        <div style="background:var(--paper,#FCFCFB);padding:20px 22px;">
+          <div style="font-family:'Spline Sans Mono',monospace;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted,#6B655E);margin-bottom:10px;">Location</div>
+          <div style="font-size:16px;font-weight:500;">Tokyo, Japan</div>
+        </div>
+        <div style="background:var(--paper,#FCFCFB);padding:20px 22px;">
+          <div style="font-family:'Spline Sans Mono',monospace;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted,#6B655E);margin-bottom:10px;">Focus</div>
+          <div style="font-size:16px;font-weight:500;">Data engineering</div>
+        </div>
+        <div style="background:var(--paper,#FCFCFB);padding:20px 22px;">
+          <div style="font-family:'Spline Sans Mono',monospace;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted,#6B655E);margin-bottom:10px;">Currently</div>
+          <div style="font-size:16px;font-weight:500;">Always learning</div>
+        </div>
+      </div>
+      <div style="max-width:560px;display:flex;flex-direction:column;gap:18px;">
+        <p style="font-size:18px;line-height:1.6;margin:0;text-wrap:pretty;">I'm a software engineer based in Tokyo working on data-engineering products.</p>
+        <p style="font-size:18px;line-height:1.6;margin:0;color:var(--muted,#6B655E);text-wrap:pretty;">Action-oriented, efficient, and decisive. I care about shipping things that work, and getting a little better at the craft every day.</p>
+        <p style="font-size:18px;line-height:1.6;margin:0;color:var(--muted,#6B655E);text-wrap:pretty;">Off the clock: hiking, specialty coffee, and always learning.</p>
+      </div>
+    </section>
+
+    <section id="work" data-reveal style="padding:60px 0;">
+      <div style="display:flex;align-items:baseline;gap:16px;border-top:1px solid var(--line,rgba(20,18,16,.14));padding-top:18px;margin-bottom:38px;font-family:'Spline Sans Mono',monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;">
+        <span style="color:var(--ink,#141210);">02</span><span style="color:var(--muted,#6B655E);">Selected work · 620m</span>
+      </div>
+      <h2 style="font-size:34px;font-weight:600;letter-spacing:-.02em;margin:0 0 8px;">Projects</h2>
+      <p style="font-size:16px;line-height:1.6;color:var(--muted,#6B655E);max-width:520px;margin:0 0 32px;text-wrap:pretty;">A couple of projects worth writing home about.</p>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px;">
+        <article style="border:1px solid var(--line,rgba(20,18,16,.14));background:var(--paper,#FCFCFB);overflow:hidden;transition:transform .4s cubic-bezier(.2,.7,.2,1);" style-hover="transform:translateY(-4px);">
+          <div style="aspect-ratio:4/3;background:#fff;display:flex;align-items:center;justify-content:center;padding:34px;border-bottom:1px solid var(--line,rgba(20,18,16,.14));">
+            <img src="uploads/FreshTrackerLogo.png" alt="FreshTracker" style="max-width:100%;max-height:100%;object-fit:contain;" />
+          </div>
+          <div style="padding:20px 22px;">
+            <div style="font-family:'Spline Sans Mono',monospace;font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted,#6B655E);margin-bottom:9px;">Project · Web app</div>
+            <h4 style="font-size:19px;font-weight:600;letter-spacing:-.01em;margin:0 0 8px;">FreshTracker</h4>
+            <p style="font-size:14.5px;line-height:1.55;color:var(--muted,#6B655E);margin:0;">Pantry management and recipe generation, powered by AI photo recognition and data analysis.</p>
+          </div>
+        </article>
+        <article style="border:1px solid var(--line,rgba(20,18,16,.14));background:var(--paper,#FCFCFB);overflow:hidden;transition:transform .4s cubic-bezier(.2,.7,.2,1);" style-hover="transform:translateY(-4px);">
+          <div style="aspect-ratio:4/3;background:#141210;overflow:hidden;border-bottom:1px solid var(--line,rgba(20,18,16,.14));">
+            <img src="uploads/StretLogo.png" alt="Strēt" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;" />
+          </div>
+          <div style="padding:20px 22px;">
+            <div style="font-family:'Spline Sans Mono',monospace;font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted,#6B655E);margin-bottom:9px;">Project · E-commerce</div>
+            <h4 style="font-size:19px;font-weight:600;letter-spacing:-.01em;margin:0 0 8px;">Strēt</h4>
+            <p style="font-size:14.5px;line-height:1.55;color:var(--muted,#6B655E);margin:0;">An urban streetwear store with modern e-commerce capabilities.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section data-reveal style="padding:60px 0;">
+      <div style="display:flex;align-items:baseline;gap:16px;border-top:1px solid var(--line,rgba(20,18,16,.14));padding-top:18px;margin-bottom:38px;font-family:'Spline Sans Mono',monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;">
+        <span style="color:var(--ink,#141210);">03</span><span style="color:var(--muted,#6B655E);">Carries · the kit</span>
+      </div>
+      <h2 style="font-size:34px;font-weight:600;letter-spacing:-.02em;margin:0 0 32px;">Skills</h2>
+      <div style="display:flex;flex-direction:column;gap:0;">
+        <div style="display:grid;grid-template-columns:120px 1fr;gap:20px;align-items:start;border-top:1px solid var(--line,rgba(20,18,16,.14));padding:22px 0;">
+          <div style="font-family:'Spline Sans Mono',monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted,#6B655E);padding-top:5px;">Languages</div>
+          <div style="display:flex;flex-wrap:wrap;gap:8px;">
+            <span style="font-family:'Spline Sans Mono',monospace;font-size:12px;letter-spacing:.04em;border:1px solid var(--line,rgba(20,18,16,.2));padding:7px 13px;border-radius:100px;transition:border-color .3s,color .3s;" style-hover="border-color:var(--accent,#C0552B);color:var(--accent,#C0552B);">Ruby on Rails</span>
+            <span style="font-family:'Spline Sans Mono',monospace;font-size:12px;letter-spacing:.04em;border:1px solid var(--line,rgba(20,18,16,.2));padding:7px 13px;border-radius:100px;transition:border-color .3s,color .3s;" style-hover="border-color:var(--accent,#C0552B);color:var(--accent,#C0552B);">Next.js</span>
+            <span style="font-family:'Spline Sans Mono',monospace;font-size:12px;letter-spacing:.04em;border:1px solid var(--line,rgba(20,18,16,.2));padding:7px 13px;border-radius:100px;transition:border-color .3s,color .3s;" style-hover="border-color:var(--accent,#C0552B);color:var(--accent,#C0552B);">React</span>
+            <span style="font-family:'Spline Sans Mono',monospace;font-size:12px;letter-spacing:.04em;border:1px solid var(--line,rgba(20,18,16,.2));padding:7px 13px;border-radius:100px;transition:border-color .3s,color .3s;" style-hover="border-color:var(--accent,#C0552B);color:var(--accent,#C0552B);">TypeScript</span>
+            <span style="font-family:'Spline Sans Mono',monospace;font-size:12px;letter-spacing:.04em;border:1px solid var(--line,rgba(20,18,16,.2));padding:7px 13px;border-radius:100px;transition:border-color .3s,color .3s;" style-hover="border-color:var(--accent,#C0552B);color:var(--accent,#C0552B);">JavaScript</span>
+            <span style="font-family:'Spline Sans Mono',monospace;font-size:12px;letter-spacing:.04em;border:1px solid var(--line,rgba(20,18,16,.2));padding:7px 13px;border-radius:100px;transition:border-color .3s,color .3s;" style-hover="border-color:var(--accent,#C0552B);color:var(--accent,#C0552B);">HTML + CSS</span>
+            <span style="font-family:'Spline Sans Mono',monospace;font-size:12px;letter-spacing:.04em;border:1px solid var(--line,rgba(20,18,16,.2));padding:7px 13px;border-radius:100px;transition:border-color .3s,color .3s;" style-hover="border-color:var(--accent,#C0552B);color:var(--accent,#C0552B);">Bootstrap</span>
+          </div>
+        </div>
+        <div style="display:grid;grid-template-columns:120px 1fr;gap:20px;align-items:start;border-top:1px solid var(--line,rgba(20,18,16,.14));padding:22px 0;">
+          <div style="font-family:'Spline Sans Mono',monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted,#6B655E);padding-top:5px;">Datastore</div>
+          <div style="display:flex;flex-wrap:wrap;gap:8px;">
+            <span style="font-family:'Spline Sans Mono',monospace;font-size:12px;letter-spacing:.04em;border:1px solid var(--line,rgba(20,18,16,.2));padding:7px 13px;border-radius:100px;transition:border-color .3s,color .3s;" style-hover="border-color:var(--accent,#C0552B);color:var(--accent,#C0552B);">SQL</span>
+            <span style="font-family:'Spline Sans Mono',monospace;font-size:12px;letter-spacing:.04em;border:1px solid var(--line,rgba(20,18,16,.2));padding:7px 13px;border-radius:100px;transition:border-color .3s,color .3s;" style-hover="border-color:var(--accent,#C0552B);color:var(--accent,#C0552B);">ActiveRecord</span>
+            <span style="font-family:'Spline Sans Mono',monospace;font-size:12px;letter-spacing:.04em;border:1px solid var(--line,rgba(20,18,16,.2));padding:7px 13px;border-radius:100px;transition:border-color .3s,color .3s;" style-hover="border-color:var(--accent,#C0552B);color:var(--accent,#C0552B);">PostgreSQL</span>
+            <span style="font-family:'Spline Sans Mono',monospace;font-size:12px;letter-spacing:.04em;border:1px solid var(--line,rgba(20,18,16,.2));padding:7px 13px;border-radius:100px;transition:border-color .3s,color .3s;" style-hover="border-color:var(--accent,#C0552B);color:var(--accent,#C0552B);">MySQL</span>
+            <span style="font-family:'Spline Sans Mono',monospace;font-size:12px;letter-spacing:.04em;border:1px solid var(--line,rgba(20,18,16,.2));padding:7px 13px;border-radius:100px;transition:border-color .3s,color .3s;" style-hover="border-color:var(--accent,#C0552B);color:var(--accent,#C0552B);">Supabase</span>
+          </div>
+        </div>
+        <div style="display:grid;grid-template-columns:120px 1fr;gap:20px;align-items:start;border-top:1px solid var(--line,rgba(20,18,16,.14));padding:22px 0;">
+          <div style="font-family:'Spline Sans Mono',monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted,#6B655E);padding-top:5px;">Tools</div>
+          <div style="display:flex;flex-wrap:wrap;gap:8px;">
+            <span style="font-family:'Spline Sans Mono',monospace;font-size:12px;letter-spacing:.04em;border:1px solid var(--line,rgba(20,18,16,.2));padding:7px 13px;border-radius:100px;transition:border-color .3s,color .3s;" style-hover="border-color:var(--accent,#C0552B);color:var(--accent,#C0552B);">OpenAI</span>
+            <span style="font-family:'Spline Sans Mono',monospace;font-size:12px;letter-spacing:.04em;border:1px solid var(--line,rgba(20,18,16,.2));padding:7px 13px;border-radius:100px;transition:border-color .3s,color .3s;" style-hover="border-color:var(--accent,#C0552B);color:var(--accent,#C0552B);">Claude Code</span>
+            <span style="font-family:'Spline Sans Mono',monospace;font-size:12px;letter-spacing:.04em;border:1px solid var(--line,rgba(20,18,16,.2));padding:7px 13px;border-radius:100px;transition:border-color .3s,color .3s;" style-hover="border-color:var(--accent,#C0552B);color:var(--accent,#C0552B);">Git</span>
+          </div>
+        </div>
+        <div style="display:grid;grid-template-columns:120px 1fr;gap:20px;align-items:start;border-top:1px solid var(--line,rgba(20,18,16,.14));border-bottom:1px solid var(--line,rgba(20,18,16,.14));padding:22px 0;">
+          <div style="font-family:'Spline Sans Mono',monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted,#6B655E);padding-top:5px;">Cloud</div>
+          <div style="display:flex;flex-wrap:wrap;gap:8px;">
+            <span style="font-family:'Spline Sans Mono',monospace;font-size:12px;letter-spacing:.04em;border:1px solid var(--line,rgba(20,18,16,.2));padding:7px 13px;border-radius:100px;transition:border-color .3s,color .3s;" style-hover="border-color:var(--accent,#C0552B);color:var(--accent,#C0552B);">AWS</span>
+            <span style="font-family:'Spline Sans Mono',monospace;font-size:12px;letter-spacing:.04em;border:1px solid var(--line,rgba(20,18,16,.2));padding:7px 13px;border-radius:100px;transition:border-color .3s,color .3s;" style-hover="border-color:var(--accent,#C0552B);color:var(--accent,#C0552B);">GCP</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" data-reveal style="padding:60px 0 0;">
+      <div style="display:flex;align-items:baseline;gap:16px;border-top:1px solid var(--line,rgba(20,18,16,.14));padding-top:18px;margin-bottom:38px;font-family:'Spline Sans Mono',monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;">
+        <span style="color:var(--ink,#141210);">04</span><span style="color:var(--muted,#6B655E);">Summit · 3776m</span>
+      </div>
+      <h2 style="font-size:clamp(38px,6vw,56px);font-weight:600;letter-spacing:-.03em;margin:0 0 20px;line-height:1;">Get in touch</h2>
+      <p style="font-size:19px;line-height:1.55;color:var(--muted,#6B655E);max-width:460px;margin:0 0 30px;text-wrap:pretty;">The fastest way to reach me is LinkedIn. Feel free to get in touch.</p>
+      <a href="{{ linkedinUrl }}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:10px;font-size:15px;font-weight:500;background:var(--ink,#141210);color:var(--paper,#FCFCFB);padding:15px 26px;cursor:pointer;transition:transform .3s cubic-bezier(.2,.7,.2,1),box-shadow .3s;" style-hover="transform:translateY(-2px);box-shadow:0 8px 22px rgba(20,18,16,.16);">Connect on LinkedIn →</a>
+      <div style="margin-top:30px;font-family:'Spline Sans Mono',monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted,#6B655E);display:flex;align-items:center;gap:10px;">
+        <span style="width:7px;height:7px;border-radius:50%;background:var(--accent,#C0552B);animation:rs-blink 2.6s ease-in-out infinite;"></span>Tokyo · 35.68°N · available
+      </div>
+    </section>
+
+    <footer data-reveal style="border-top:1px solid var(--line,rgba(20,18,16,.14));padding-top:48px;margin-top:60px;display:flex;flex-direction:column;gap:24px;">
+      <div style="display:flex;align-items:center;gap:10px;font-family:'Spline Sans Mono',monospace;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted,#6B655E);">
+        <span style="width:8px;height:8px;border-radius:50%;background:var(--accent,#C0552B);"></span>Summit · 3776m
+      </div>
+      <div style="color:var(--ink,#141210);display:flex;justify-content:center;">
+        <svg width="128" height="66" viewBox="0 0 128 66" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6,60 42,16 64,40 82,10 122,60"/><polyline points="42,16 49,27" stroke-width="1"/><line x1="64" y1="4" x2="64" y2="10"/><line x1="61" y1="7" x2="67" y2="7"/></svg>
+      </div>
+      <p style="text-align:center;font-size:17px;font-weight:500;margin:0;">You've reached the summit.</p>
+      <p style="text-align:center;font-size:15px;color:var(--muted,#6B655E);margin:0 0 8px;">Thanks for climbing along!</p>
+    </footer>
+
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{
+  &quot;linkedinUrl&quot;: { &quot;editor&quot;: &quot;text&quot;, &quot;default&quot;: &quot;https://www.linkedin.com/in/rachelschlaifer/&quot;, &quot;tsType&quot;: &quot;string&quot;, &quot;section&quot;: &quot;Content&quot; },
+  &quot;accentColor&quot;: { &quot;editor&quot;: &quot;color&quot;, &quot;default&quot;: &quot;#C0552B&quot;, &quot;tsType&quot;: &quot;string&quot;, &quot;options&quot;: [&quot;#C0552B&quot;, &quot;#3F7D6E&quot;, &quot;#2E5EAA&quot;, &quot;#141210&quot;], &quot;section&quot;: &quot;Theme&quot; },
+  &quot;paperTone&quot;: { &quot;editor&quot;: &quot;enum&quot;, &quot;default&quot;: &quot;Crisp&quot;, &quot;tsType&quot;: &quot;string&quot;, &quot;options&quot;: [&quot;Crisp&quot;, &quot;Warm&quot;, &quot;Cool&quot;], &quot;section&quot;: &quot;Theme&quot; },
+  &quot;reduceMotion&quot;: { &quot;editor&quot;: &quot;boolean&quot;, &quot;default&quot;: false, &quot;tsType&quot;: &quot;boolean&quot;, &quot;section&quot;: &quot;Motion&quot; }
+}">
+class Component extends DCLogic {
+  rootRef = React.createRef();
+  railBoxRef = React.createRef();
+  blazePathRef = React.createRef();
+  dotRef = React.createRef();
+  elevRef = React.createRef();
+  _raf = null;
+
+  componentDidMount() {
+    const root = this.rootRef.current;
+    if (!root) return;
+
+    const tones = {
+      Crisp: { paper: '#FCFCFB', ink: '#141210', muted: '#6B655E', line: 'rgba(20,18,16,.14)' },
+      Warm:  { paper: '#FAF6EF', ink: '#1C1710', muted: '#7A7266', line: 'rgba(28,23,16,.15)' },
+      Cool:  { paper: '#F6F8F9', ink: '#10151A', muted: '#66707A', line: 'rgba(16,21,26,.14)' },
+    };
+    const t = tones[this.props.paperTone] || tones.Crisp;
+    root.style.setProperty('--paper', t.paper);
+    root.style.setProperty('--ink', t.ink);
+    root.style.setProperty('--muted', t.muted);
+    root.style.setProperty('--line', t.line);
+    if (this.props.accentColor) root.style.setProperty('--accent', this.props.accentColor);
+
+    const off = !!this.props.reduceMotion;
+    root.setAttribute('data-motion', off ? 'off' : 'on');
+
+    const reveals = Array.from(root.querySelectorAll('[data-reveal]'));
+    if (off) {
+      reveals.forEach(el => { el.style.opacity = '1'; el.style.transform = 'none'; });
+    } else {
+      reveals.forEach(el => {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(20px)';
+        el.style.transition = 'opacity .7s cubic-bezier(.2,.7,.2,1), transform .7s cubic-bezier(.2,.7,.2,1)';
+      });
+      this._io = new IntersectionObserver((ents) => {
+        ents.forEach(e => {
+          if (e.isIntersecting) {
+            e.target.style.opacity = '1';
+            e.target.style.transform = 'none';
+            this._io.unobserve(e.target);
+          }
+        });
+      }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+      reveals.forEach(el => this._io.observe(el));
+    }
+
+    const maxElev = 3776;
+    const box = root.querySelector('[data-rail-box]');
+    const blaze = root.querySelector('[data-blaze]');
+    this._box = box;
+    this._blaze = blaze;
+    this._len = blaze ? blaze.getTotalLength() : 0;
+    if (blaze && this._len) {
+      blaze.style.strokeDasharray = this._len;
+      blaze.style.strokeDashoffset = this._len;
+    }
+    this._onScroll = () => {
+      if (this._raf) return;
+      this._raf = requestAnimationFrame(() => {
+        this._raf = null;
+        const doc = document.documentElement;
+        const max = (doc.scrollHeight - window.innerHeight) || 1;
+        const p = Math.min(1, Math.max(0, window.scrollY / max));
+        const b = this._blaze, bx = this._box;
+        if (b && this._len) b.style.strokeDashoffset = this._len * (1 - p);
+        if (b && bx && this.dotRef.current) {
+          const pt = b.getPointAtLength(p * this._len);
+          const r = bx.getBoundingClientRect();
+          this.dotRef.current.style.left = (pt.x / 44 * r.width) + 'px';
+          this.dotRef.current.style.top = (pt.y / 1000 * r.height) + 'px';
+        }
+        if (this.elevRef.current) this.elevRef.current.textContent = Math.round(p * maxElev) + 'm';
+      });
+    };
+    window.addEventListener('scroll', this._onScroll, { passive: true });
+    window.addEventListener('resize', this._onScroll);
+    this._onScroll();
+  }
+
+  componentWillUnmount() {
+    if (this._onScroll) {
+      window.removeEventListener('scroll', this._onScroll);
+      window.removeEventListener('resize', this._onScroll);
+    }
+    if (this._io) this._io.disconnect();
+    if (this._raf) cancelAnimationFrame(this._raf);
+  }
+
+  renderVals() {
+    return {
+      rootRef: this.rootRef,
+      railFillRef: this.railFillRef,
+      dotRef: this.dotRef,
+      elevRef: this.elevRef,
+      linkedinUrl: this.props.linkedinUrl || 'https://www.linkedin.com/in/rachelschlaifer/',
+    };
+  }
+}
+</script>
+</body>
+</html>
